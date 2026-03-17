@@ -1,0 +1,98 @@
+<section style="padding: 5rem 0;">
+  <div class="container" style="max-width: 56rem; margin: 0 auto;">
+    {% if product.media.size > 0 %}
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 3rem;">
+        <div>
+          <div style="aspect-ratio: 1; border-radius: var(--radius-card); overflow: hidden; background: hsl(var(--secondary));">
+            {{ product.featured_image | image_url: width: 800 | image_tag: style: 'width:100%;height:100%;object-fit:cover;' }}
+          </div>
+        </div>
+        
+        <div style="padding: 2rem 0;">
+          {% render 'breadcrumbs', product: product %}
+          
+          <h1 style="font-family: var(--font-display); font-size: 2.5rem; margin-bottom: 0.75rem;">{{ product.title }}</h1>
+          <p style="font-size: 1.125rem; color: hsl(var(--fg) / 0.6); margin-bottom: 1.5rem;">
+            {{ product.metafields.chinchoo.tagline | default: 'An instant upgrade that keeps you looking finished.' }}
+          </p>
+          <p style="font-size: 1.75rem; font-weight: 700; margin-bottom: 2rem;">{{ product.price | money }}</p>
+          
+          {% form 'product', product %}
+            <div style="display: flex; gap: 1rem; margin-bottom: 2rem;">
+              <button type="submit" class="btn btn-primary" style="flex: 1;">Add to Cart</button>
+              <a href="/collections/all" class="btn btn-outline">Build Bundle</a>
+            </div>
+          {% endform %}
+          
+          <!-- Trust Row -->
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; margin-bottom: 2.5rem;">
+            {% for block in section.blocks %}
+              {% if block.type == 'trust_item' %}
+                <div style="display: flex; align-items: center; gap: 0.5rem; background: hsl(var(--secondary)); border-radius: 0.75rem; padding: 0.75rem 1rem;">
+                  <span>{{ block.settings.icon }}</span>
+                  <span style="font-size: 0.875rem; font-weight: 500;">{{ block.settings.label }}</span>
+                </div>
+              {% endif %}
+            {% endfor %}
+          </div>
+          
+          <!-- Accordions -->
+          <div style="border-top: 1px solid hsl(var(--border));">
+            <details style="border-bottom: 1px solid hsl(var(--border));">
+              <summary style="padding: 1.25rem 0; font-weight: 600; cursor: pointer;">The vibe</summary>
+              <div style="padding-bottom: 1.25rem; font-size: 0.875rem; color: hsl(var(--fg) / 0.6);">
+                {{ product.metafields.chinchoo.vibe | default: 'Designed for work, travel, events, and everything between.' }}
+              </div>
+            </details>
+            <details style="border-bottom: 1px solid hsl(var(--border));">
+              <summary style="padding: 1.25rem 0; font-weight: 600; cursor: pointer;">What's inside</summary>
+              <div style="padding-bottom: 1.25rem; font-size: 0.875rem; color: hsl(var(--fg) / 0.6);">
+                30 press-on nails (15 sizes × 2), nail glue, mini file, cuticle stick, and application guide.
+              </div>
+            </details>
+            <details style="border-bottom: 1px solid hsl(var(--border));">
+              <summary style="padding: 1.25rem 0; font-weight: 600; cursor: pointer;">How to apply</summary>
+              <div style="padding-bottom: 1.25rem; font-size: 0.875rem; color: hsl(var(--fg) / 0.6);">
+                1. Clean and dry nails. Push cuticles gently. Choose sizes.<br>
+                2. Apply adhesive and press firmly for 30 seconds.<br>
+                3. Shape and file if desired.
+              </div>
+            </details>
+            <details style="border-bottom: 1px solid hsl(var(--border));">
+              <summary style="padding: 1.25rem 0; font-weight: 600; cursor: pointer;">Care + removal</summary>
+              <div style="padding-bottom: 1.25rem; font-size: 0.875rem; color: hsl(var(--fg) / 0.6);">
+                Soak nails in warm water for 10-15 minutes. Gently loosen from edges. Never force-pull.
+              </div>
+            </details>
+          </div>
+        </div>
+      </div>
+    {% endif %}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Product Page",
+  "settings": [],
+  "blocks": [
+    {
+      "type": "trust_item",
+      "name": "Trust Item",
+      "settings": [
+        { "type": "text", "id": "icon", "label": "Icon/Emoji", "default": "⏱" },
+        { "type": "text", "id": "label", "label": "Label", "default": "Wear ~7 days" }
+      ]
+    }
+  ],
+  "presets": [{
+    "name": "Product Page",
+    "blocks": [
+      { "type": "trust_item", "settings": { "icon": "⏱", "label": "Wear ~7 days" } },
+      { "type": "trust_item", "settings": { "icon": "♻️", "label": "Reusable with care" } },
+      { "type": "trust_item", "settings": { "icon": "💅", "label": "30 nails" } },
+      { "type": "trust_item", "settings": { "icon": "✨", "label": "Soft-gel feel" } }
+    ]
+  }]
+}
+{% endschema %}

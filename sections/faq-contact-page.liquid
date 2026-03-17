@@ -1,0 +1,34 @@
+
+<section class="section-pad" style="padding:5rem 0;">
+  <div class="container faq-contact-grid" style="display:grid; grid-template-columns:1.1fr 0.9fr; gap:3rem; align-items:start;">
+    <div>
+      <h1 style="font-size: clamp(2.5rem, 6vw, 4rem); margin-bottom:0.75rem;">Need help choosing a set?</h1>
+      <p style="font-size:1.1rem; margin-bottom:2rem;">We'll keep it simple.</p>
+      <div style="display:grid; gap:0.75rem;">
+        <details style="border:1px solid hsl(var(--border)); border-radius:1rem; padding:0 1rem; background:white;"><summary style="padding:1rem 0; font-weight:600; cursor:pointer;">How long do they last?</summary><div style="padding-bottom:1rem; color:hsl(var(--fg)/0.75);">With proper application, Chinchoo press-ons typically wear for about 7 days. Results vary depending on activity level and how the adhesive is applied.</div></details>
+        <details style="border:1px solid hsl(var(--border)); border-radius:1rem; padding:0 1rem; background:white;"><summary style="padding:1rem 0; font-weight:600; cursor:pointer;">Are they reusable?</summary><div style="padding-bottom:1rem; color:hsl(var(--fg)/0.75);">Yes! With gentle removal and proper storage, your Chinchoo nails can be reapplied. We recommend using the included cuticle stick for removal.</div></details>
+        <details style="border:1px solid hsl(var(--border)); border-radius:1rem; padding:0 1rem; background:white;"><summary style="padding:1rem 0; font-weight:600; cursor:pointer;">Will it damage my natural nails?</summary><div style="padding-bottom:1rem; color:hsl(var(--fg)/0.75);">No — when applied and removed correctly following our guide, Chinchoo press-ons are safe for your natural nails.</div></details>
+        <details style="border:1px solid hsl(var(--border)); border-radius:1rem; padding:0 1rem; background:white;"><summary style="padding:1rem 0; font-weight:600; cursor:pointer;">Do you ship India-wide?</summary><div style="padding-bottom:1rem; color:hsl(var(--fg)/0.75);">Yes, we ship across India. Shipping timelines and tracking are shared at checkout and via email after dispatch.</div></details>
+        <details style="border:1px solid hsl(var(--border)); border-radius:1rem; padding:0 1rem; background:white;"><summary style="padding:1rem 0; font-weight:600; cursor:pointer;">Is COD available?</summary><div style="padding-bottom:1rem; color:hsl(var(--fg)/0.75);">Payment options including COD availability are shown at checkout and may vary by location.</div></details>
+        <details style="border:1px solid hsl(var(--border)); border-radius:1rem; padding:0 1rem; background:white;"><summary style="padding:1rem 0; font-weight:600; cursor:pointer;">What's inside each set?</summary><div style="padding-bottom:1rem; color:hsl(var(--fg)/0.75);">Every Chinchoo set includes 30 press-on nails (15 sizes × 2), nail glue, a mini file, a cuticle stick, and a quick-start application guide.</div></details>
+      </div>
+    </div>
+    <div>
+      <h2 style="font-size:2rem; margin-bottom:1.25rem;">Contact us</h2>
+      {% form 'contact' %}
+        <div style="display:grid; gap:0.75rem;">
+          <input type="text" name="contact[name]" placeholder="Name" style="width:100%; padding:0.95rem 1rem; border-radius:0.85rem; border:1px solid hsl(var(--border)); background:white;">
+          <input type="email" name="contact[email]" placeholder="Email" style="width:100%; padding:0.95rem 1rem; border-radius:0.85rem; border:1px solid hsl(var(--border)); background:white;" required>
+          <input type="text" name="contact[order_id]" placeholder="Order ID (optional)" style="width:100%; padding:0.95rem 1rem; border-radius:0.85rem; border:1px solid hsl(var(--border)); background:white;">
+          <textarea name="contact[body]" rows="5" placeholder="Message" style="width:100%; padding:0.95rem 1rem; border-radius:0.85rem; border:1px solid hsl(var(--border)); background:white;" required></textarea>
+          <button class="btn btn-primary" type="submit">Send message</button>
+        </div>
+      {% endform %}
+      <div style="margin-top:1rem; display:grid; gap:0.35rem; font-size:0.95rem;">
+        <p>📧 {{ settings.contact_email }}</p>
+        <p>💬 {{ settings.contact_phone }} (WhatsApp)</p>
+      </div>
+    </div>
+  </div>
+</section>
+{% schema %}{"name":"FAQ + Contact page","settings":[]}{% endschema %}

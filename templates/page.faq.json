@@ -1,0 +1,10 @@
+{
+  "sections": {
+    "main": {
+      "type": "faq-contact-page"
+    }
+  },
+  "order": [
+    "main"
+  ]
+}

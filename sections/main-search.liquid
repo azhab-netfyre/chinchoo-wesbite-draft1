@@ -1,0 +1,33 @@
+
+<section class="section-pad" style="padding: 4rem 0;">
+  <div class="container" style="max-width: 900px;">
+    <h1 style="font-size: 3rem; margin-bottom: 1rem;">Search</h1>
+    {% paginate search.results by 12 %}
+      <form action="{{ routes.search_url }}" method="get" role="search" style="display:flex; gap:0.75rem; margin-bottom:2rem;">
+        <input type="search" name="q" value="{{ search.terms | escape }}" placeholder="Search..." style="flex:1; padding:0.9rem 1rem; border-radius:0.8rem; border:1px solid hsl(var(--border)); background:white;">
+        <button class="btn btn-primary" type="submit">Search</button>
+      </form>
+      {% if search.performed %}
+        <p style="margin-bottom:1.5rem;">{% if search.results_count == 0 %}Your search for "{{ search.terms }}" did not yield any results{% else %}{{ search.results_count }} result(s) for "{{ search.terms }}"{% endif %}</p>
+      {% endif %}
+      {% if search.results_count > 0 %}
+        <div class="featured-grid" style="display:grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1.5rem;">
+          {% for item in search.results %}
+            {% if item.object_type == 'product' %}
+              {% render 'product-card', product: item %}
+            {% else %}
+              <a href="{{ item.url }}" style="display:block; padding:1.25rem; border:1px solid hsl(var(--border)); border-radius:1rem; text-decoration:none; color:inherit; background:white;">
+                <strong>{{ item.title }}</strong>
+                <div style="margin-top:0.5rem; color:hsl(var(--fg) / 0.7);">{{ item.content | strip_html | truncate: 100 }}</div>
+              </a>
+            {% endif %}
+          {% endfor %}
+        </div>
+      {% endif %}
+    {% endpaginate %}
+  </div>
+</section>
+
+{% schema %}
+{ "name": "Main search", "settings": [] }
+{% endschema %}

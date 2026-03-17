@@ -1,0 +1,44 @@
+<section style="background: hsl(var(--accent-purple)); color: hsl(var(--butter)); padding: 0.75rem 0; overflow: hidden;">
+  <div class="ticker-wrap">
+    <div class="ticker-track">
+      {% for block in section.blocks %}
+        <span style="display: inline-flex; align-items: center; margin: 0 1.5rem; font-size: 0.875rem; font-weight: 600; white-space: nowrap;">
+          <span style="width: 6px; height: 6px; border-radius: 50%; background: hsl(var(--accent-mint)); margin-right: 0.75rem;"></span>
+          {{ block.settings.text }}
+        </span>
+      {% endfor %}
+      {% for block in section.blocks %}
+        <span style="display: inline-flex; align-items: center; margin: 0 1.5rem; font-size: 0.875rem; font-weight: 600; white-space: nowrap;">
+          <span style="width: 6px; height: 6px; border-radius: 50%; background: hsl(var(--accent-mint)); margin-right: 0.75rem;"></span>
+          {{ block.settings.text }}
+        </span>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Value Ticker",
+  "blocks": [
+    {
+      "type": "item",
+      "name": "Ticker Item",
+      "settings": [
+        { "type": "text", "id": "text", "label": "Text", "default": "Instant upgrade" }
+      ]
+    }
+  ],
+  "presets": [{
+    "name": "Value Ticker",
+    "blocks": [
+      { "type": "item", "settings": { "text": "Instant upgrade" } },
+      { "type": "item", "settings": { "text": "Real-life ready" } },
+      { "type": "item", "settings": { "text": "30 nails per set" } },
+      { "type": "item", "settings": { "text": "Soft-gel feel" } },
+      { "type": "item", "settings": { "text": "~7 day wear" } },
+      { "type": "item", "settings": { "text": "Reusable with care" } }
+    ]
+  }]
+}
+{% endschema %}

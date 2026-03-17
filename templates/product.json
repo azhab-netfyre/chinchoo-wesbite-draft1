@@ -1,0 +1,14 @@
+{
+  "sections": {
+    "main": { "type": "main-product",
+      "blocks": {
+        "trust-1": { "type": "trust_item", "settings": { "icon": "⏱", "label": "Wear ~7 days" } },
+        "trust-2": { "type": "trust_item", "settings": { "icon": "♻️", "label": "Reusable with care" } },
+        "trust-3": { "type": "trust_item", "settings": { "icon": "💅", "label": "30 nails" } },
+        "trust-4": { "type": "trust_item", "settings": { "icon": "✨", "label": "Soft-gel feel" } }
+      },
+      "block_order": ["trust-1", "trust-2", "trust-3", "trust-4"]
+    }
+  },
+  "order": ["main"]
+}

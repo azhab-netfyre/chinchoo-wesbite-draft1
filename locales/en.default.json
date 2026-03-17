@@ -1,0 +1,62 @@
+{
+  "en": {
+    "general": {
+      "accessibility": {
+        "skip_to_content": "Skip to content",
+        "close": "Close"
+      },
+      "meta": {
+        "tags": "Tagged \"{{ tags }}\"",
+        "page": "Page {{ page }}"
+      }
+    },
+    "header": {
+      "cart": "Cart",
+      "menu": "Menu"
+    },
+    "footer": {
+      "copyright": "© {{ year }} {{ shop_name }}. All rights reserved."
+    },
+    "products": {
+      "product": {
+        "add_to_cart": "Add to Cart",
+        "sold_out": "Sold Out",
+        "on_sale": "Sale",
+        "quantity": "Quantity",
+        "description": "Description"
+      }
+    },
+    "collections": {
+      "general": {
+        "no_matches": "No products match your filters.",
+        "clear_all": "Clear all"
+      }
+    },
+    "cart": {
+      "general": {
+        "title": "Cart",
+        "empty": "Your cart is empty",
+        "continue_shopping": "Continue shopping",
+        "subtotal": "Subtotal",
+        "checkout": "Check out"
+      }
+    },
+    "customer": {
+      "login": {
+        "title": "Login",
+        "email": "Email",
+        "password": "Password",
+        "sign_in": "Sign in",
+        "forgot_password": "Forgot your password?"
+      },
+      "register": {
+        "title": "Create Account",
+        "first_name": "First name",
+        "last_name": "Last name",
+        "email": "Email",
+        "password": "Password",
+        "submit": "Create"
+      }
+    }
+  }
+}

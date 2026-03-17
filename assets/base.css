@@ -1,0 +1,128 @@
+:root {
+  --bg: 60 100% 93%;
+  --fg: 0 0% 12%;
+  --accent: 349 82% 56%;
+  --accent-bubblegum: 311 100% 73%;
+  --accent-purple: 262 99% 64%;
+  --accent-mint: 148 92% 72%;
+  --accent-lemon: 60 100% 82%;
+  --butter: 60 100% 93%;
+  --secondary: 60 60% 88%;
+  --success: 142 70% 45%;
+  --border: 60 40% 85%;
+
+  --font-display: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  --font-body: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+
+  --radius-inner: 8px;
+  --radius-outer: 12px;
+  --radius-card: 1.5rem;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  background-color: hsl(var(--bg));
+  color: hsl(var(--fg));
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+  line-height: 1.6;
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  text-wrap: balance;
+  color: hsl(var(--accent));
+}
+
+p {
+  color: hsl(var(--accent-bubblegum));
+}
+
+.container { max-width: 1400px; margin: 0 auto; padding: 0 1.5rem; }
+
+.skip-to-content {
+  position: absolute; top: -100%; left: 50%; transform: translateX(-50%);
+  padding: 0.5rem 1rem; background: hsl(var(--accent)); color: hsl(var(--butter));
+  border-radius: 0 0 8px 8px; z-index: 100; text-decoration: none; font-size: 0.875rem;
+}
+.skip-to-content:focus { top: 0; }
+
+/* Buttons */
+.btn {
+  display: inline-flex; align-items: center; justify-content: center;
+  padding: 0.875rem 2rem; border-radius: 9999px;
+  font-family: var(--font-body); font-weight: 600; font-size: 0.875rem;
+  text-decoration: none; cursor: pointer; border: none;
+  transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+}
+.btn:hover { transform: translateY(-2px); }
+.btn-primary {
+  background: hsl(var(--accent)); color: hsl(var(--butter));
+}
+.btn-primary:hover { box-shadow: 0 8px 24px -4px hsl(var(--accent) / 0.4); background: hsl(var(--accent-bubblegum)); }
+.btn-outline {
+  background: transparent; border: 2px solid hsl(var(--accent)); color: hsl(var(--accent));
+}
+.btn-outline:hover { background: hsl(var(--accent)); color: hsl(var(--butter)); }
+
+/* Product Card */
+.product-card {
+  transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+}
+.product-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px -8px hsl(var(--accent) / 0.15);
+}
+.product-card img { transition: transform 0.5s ease; }
+.product-card:hover img { transform: scale(1.05); }
+
+/* Badge */
+.badge {
+  display: inline-block; font-size: 0.75rem; font-weight: 700;
+  padding: 0.25rem 0.75rem; border-radius: 9999px;
+}
+.badge-new { background: hsl(var(--accent-mint)); color: hsl(var(--fg)); }
+.badge-best { background: hsl(var(--accent-purple)); color: hsl(var(--butter)); }
+
+/* Ticker */
+.ticker-wrap { overflow: hidden; }
+.ticker-track {
+  display: flex; animation: ticker 30s linear infinite; white-space: nowrap;
+}
+@keyframes ticker {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+/* Nail dots */
+.nail-dot {
+  width: 1.75rem; height: 2.25rem; border-radius: 9999px; border: 2px solid;
+}
+
+/* Logo animation */
+.logo-chinchoo {
+  animation: logoPopIn 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+@keyframes logoPopIn {
+  0% { opacity: 0; transform: scale(0.94); }
+  100% { opacity: 1; transform: scale(1); }
+}
+
+
+@media (max-width: 990px) {
+  .container { padding: 0 1rem; }
+  .main-nav { gap: 1rem !important; flex-wrap: wrap; justify-content: center; }
+}
+@media (max-width: 767px) {
+  .container { padding: 0 0.875rem; }
+  .hero-split-grid, .collection-grid, .footer-grid, .comparison-grid, .product-main-grid, .faq-contact-grid, .about-category-grid { grid-template-columns: 1fr !important; }
+  .featured-grid { grid-template-columns: repeat(2, minmax(0,1fr)) !important; }
+  .site-header .container { height: auto !important; padding-top: 0.75rem; padding-bottom: 0.75rem; flex-wrap: wrap; gap: 0.75rem; }
+  h1 { font-size: clamp(2.5rem, 10vw, 4rem) !important; }
+  h2 { font-size: clamp(1.75rem, 6vw, 2.5rem) !important; }
+  .section-pad { padding: 4rem 0 !important; }
+  .lookbook-grid { grid-template-columns: repeat(2, minmax(0,1fr)) !important; }
+}

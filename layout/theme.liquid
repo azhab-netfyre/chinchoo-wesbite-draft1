@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="{{ request.locale.iso_code }}">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ page_title }} — {{ shop.name }}</title>
+  <meta name="description" content="{{ page_description | default: shop.description }}">
+  <link rel="canonical" href="{{ canonical_url }}">
+
+  
+<style>
+  :root {
+    --bg: {{ settings.color_background | default: '#FFFFD9' | color_to_hsl | replace: 'hsl(', '' | replace: ')', '' }};
+    --fg: {{ settings.color_text | default: '#1F1F1F' | color_to_hsl | replace: 'hsl(', '' | replace: ')', '' }};
+    --accent: {{ settings.color_primary | default: '#EB355B' | color_to_hsl | replace: 'hsl(', '' | replace: ')', '' }};
+    --accent-bubblegum: {{ settings.color_bubblegum | default: '#FF76E5' | color_to_hsl | replace: 'hsl(', '' | replace: ')', '' }};
+    --accent-purple: {{ settings.color_accent | default: '#8147FE' | color_to_hsl | replace: 'hsl(', '' | replace: ')', '' }};
+    --accent-mint: {{ settings.color_mint | default: '#75F9B0' | color_to_hsl | replace: 'hsl(', '' | replace: ')', '' }};
+    --accent-lemon: {{ settings.color_lemon | default: '#FFFFA1' | color_to_hsl | replace: 'hsl(', '' | replace: ')', '' }};
+    --butter: {{ settings.color_background | default: '#FFFFD9' | color_to_hsl | replace: 'hsl(', '' | replace: ')', '' }};
+    --border: 60 40% 85%;
+    --secondary: 60 60% 88%;
+  }
+</style>
+{{ 'base.css' | asset_url | stylesheet_tag }}
+
+  {{ content_for_header }}
+
+  {% if settings.enable_logo_shimmer %}
+    <style>
+      .logo-chinchoo img {
+        transition: filter 0.4s ease, transform 0.3s ease;
+      }
+      .logo-chinchoo:hover img {
+        filter: drop-shadow(0 0 12px hsl(311, 100%, 73%, 0.5)) drop-shadow(0 0 24px hsl(60, 100%, 82%, 0.3));
+        transform: scale(1.04);
+      }
+    </style>
+  {% endif %}
+</head>
+<body>
+  <a href="#main" class="skip-to-content">{{ 'general.accessibility.skip_to_content' | t }}</a>
+
+  {% section 'announcement-bar' %}
+  {% section 'header' %}
+
+  <main id="main" role="main">
+    {{ content_for_layout }}
+  </main>
+
+  {% section 'footer' %}
+
+  <script src="{{ 'chinchoo.js' | asset_url }}" defer></script>
+</body>
+</html>

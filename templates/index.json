@@ -1,0 +1,68 @@
+{
+  "sections": {
+    "announcement-bar": {
+      "type": "announcement-bar"
+    },
+    "hero": {
+      "type": "hero-split",
+      "blocks": {
+        "feature-1": {
+          "type": "feature",
+          "settings": {
+            "label": "30 Nails",
+            "sublabel": "Perfect fit for every finger"
+          }
+        },
+        "feature-2": {
+          "type": "feature",
+          "settings": {
+            "label": "Soft-Gel Feel",
+            "sublabel": "Salon quality, zero wait"
+          }
+        }
+      },
+      "block_order": ["feature-1", "feature-2"],
+      "settings": {
+        "tag": "Always Put-Together",
+        "title": "Feel like yourself, instantly.",
+        "subtext": "The perfect fit without compromise. Chinchoo press-ons are designed to be your stylish friend in every journey.",
+        "cta_text": "Shop Nails",
+        "cta2_text": "How It Works"
+      }
+    },
+    "ticker": {
+      "type": "value-ticker",
+      "blocks": {
+        "t1": { "type": "item", "settings": { "text": "Instant upgrade" } },
+        "t2": { "type": "item", "settings": { "text": "Real-life ready" } },
+        "t3": { "type": "item", "settings": { "text": "30 nails per set" } },
+        "t4": { "type": "item", "settings": { "text": "Soft-gel feel" } },
+        "t5": { "type": "item", "settings": { "text": "~7 day wear" } },
+        "t6": { "type": "item", "settings": { "text": "Reusable with care" } }
+      },
+      "block_order": ["t1", "t2", "t3", "t4", "t5", "t6"]
+    },
+    "featured": {
+      "type": "featured-collection",
+      "settings": {
+        "title": "Pick your set",
+        "subtitle": "20 designs to start. More drops coming.",
+        "limit": 8
+      }
+    },
+    "comparison": {
+      "type": "comparison-30-nails",
+      "settings": {
+        "title": "The Chinchoo Count",
+        "subtitle": "Most brands give you 24 nails. We give you 30. Why? Because \"close enough\" isn't a fit."
+      }
+    }
+  },
+  "order": [
+    "announcement-bar",
+    "hero",
+    "ticker",
+    "featured",
+    "comparison"
+  ]
+}

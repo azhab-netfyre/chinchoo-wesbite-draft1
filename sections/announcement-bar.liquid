@@ -1,0 +1,19 @@
+<section style="background: hsl(var(--accent)); color: hsl(var(--butter)); padding: 0.625rem 0; text-align: center; font-size: 0.875rem; font-weight: 600; letter-spacing: 0.02em;">
+  <div class="container">
+    {{ section.settings.text | default: 'Free shipping on orders above ₹999' }}
+    {% if section.settings.link_text != blank %}
+      · <a href="{{ section.settings.link_url | default: '/collections/all' }}" style="color: hsl(var(--accent-lemon)); text-decoration: underline; text-underline-offset: 2px;">{{ section.settings.link_text }}</a>
+    {% endif %}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Announcement Bar",
+  "settings": [
+    { "type": "text", "id": "text", "label": "Announcement text", "default": "Free shipping on orders above ₹999" },
+    { "type": "text", "id": "link_text", "label": "Link text", "default": "Shop Now" },
+    { "type": "url", "id": "link_url", "label": "Link URL" }
+  ]
+}
+{% endschema %}

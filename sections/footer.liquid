@@ -1,0 +1,52 @@
+
+<footer style="background: hsl(var(--accent-purple)); color: hsl(var(--butter)); padding: 4rem 0 2rem;">
+  <div class="container">
+    <div class="footer-grid" style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 3rem;">
+      <div>
+        {% if settings.logo %}
+          <img src="{{ settings.logo | image_url: width: settings.logo_width }}" alt="{{ shop.name }}" style="height: 28px; width: auto; margin-bottom: 1rem;">
+        {% else %}
+          <img src="{{ 'logo-light.svg' | asset_url }}" alt="{{ shop.name }}" style="height: 28px; width: auto; margin-bottom: 1rem;">
+        {% endif %}
+        <p style="font-size: 0.875rem; opacity: 0.9; line-height: 1.6; color: hsl(var(--butter));">Elevated, expressive essentials that feel alive — premium without intimidation.</p>
+      </div>
+
+      <div>
+        <h4 style="font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 1rem; color: hsl(var(--accent-lemon)); opacity: 0.85;">Shop</h4>
+        <nav style="display: flex; flex-direction: column; gap: 0.5rem;">
+          <a href="{{ routes.collections_url }}/all" style="font-size: 0.875rem; color: hsl(var(--butter)); opacity: 0.85; text-decoration: none;">All Products</a>
+          <a href="{{ routes.collections_url }}" style="font-size: 0.875rem; color: hsl(var(--butter)); opacity: 0.85; text-decoration: none;">Collections</a>
+          <a href="/pages/lookbook" style="font-size: 0.875rem; color: hsl(var(--butter)); opacity: 0.85; text-decoration: none;">Lookbook</a>
+        </nav>
+      </div>
+
+      <div>
+        <h4 style="font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 1rem; color: hsl(var(--accent-lemon)); opacity: 0.85;">Help</h4>
+        <nav style="display: flex; flex-direction: column; gap: 0.5rem;">
+          <a href="/pages/faq" style="font-size: 0.875rem; color: hsl(var(--butter)); opacity: 0.85; text-decoration: none;">FAQ</a>
+          <a href="/pages/how-it-works" style="font-size: 0.875rem; color: hsl(var(--butter)); opacity: 0.85; text-decoration: none;">How It Works</a>
+          <a href="/pages/policies" style="font-size: 0.875rem; color: hsl(var(--butter)); opacity: 0.85; text-decoration: none;">Policies</a>
+        </nav>
+      </div>
+
+      <div>
+        <h4 style="font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 1rem; color: hsl(var(--accent-lemon)); opacity: 0.85;">Contact</h4>
+        <p style="font-size: 0.875rem; color: hsl(var(--butter)); opacity: 0.85; margin-bottom: 0.5rem;">{{ settings.contact_email }}</p>
+        <p style="font-size: 0.875rem; color: hsl(var(--butter)); opacity: 0.85; margin-bottom: 0.5rem;">{{ settings.contact_phone }}</p>
+        <a href="{{ settings.social_instagram }}" style="font-size: 0.875rem; color: hsl(var(--accent-lemon)); text-decoration: none;">Instagram</a>
+      </div>
+    </div>
+
+    <div style="margin-top: 3rem; padding-top: 1.5rem; border-top: 1px solid hsla(60,100%,93%,0.2); display: flex; align-items: center; justify-content: space-between; gap:1rem; flex-wrap:wrap;">
+      <p style="font-size: 0.75rem; opacity: 0.6; color: hsl(var(--butter));">© {{ 'now' | date: '%Y' }} {{ shop.name }}. All rights reserved.</p>
+      <p style="font-size: 0.75rem; opacity: 0.6; color: hsl(var(--butter));">{{ settings.trust_shipping }} · {{ settings.trust_guarantee }}</p>
+    </div>
+  </div>
+</footer>
+
+{% schema %}
+{
+  "name": "Footer",
+  "settings": []
+}
+{% endschema %}
